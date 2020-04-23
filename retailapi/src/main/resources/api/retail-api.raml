@@ -1,0 +1,251 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/a7740b41-d3be-4ab8-99aa-cf29aee9a706/ # 
+title: Retail API
+
+
+/Products:
+  description: product information 
+  get:
+    description: fetches list of all product data
+    responses:
+      200:
+        body:
+          application/json:
+            examples:
+              {
+                "massage":"succesful"
+                
+              }
+      400:
+        body:
+          application/json:
+            examples:
+              {
+                "massage":"not found"
+              }
+
+      
+  /{Id}:
+    description:  specific product
+    get:
+      description: fetches specific product
+      responses:
+        200:
+          body:
+            application/json:
+              examples:
+                {"massage":"successful"}
+        400:
+          body:
+            application/json:
+              examples:
+                {"massage":"not found"}
+    put:
+     description: Updates product data based on requestJSON
+     responses:
+       200:
+         body:
+           application/json:
+             examples:
+               {
+                 "massage":"succesfully updated"
+               }
+       304:
+         body:
+           application/json:
+             examples:
+               {"massage":"not modified"}
+    delete:
+     description: Delete an existing product if it is not associated with a bill.
+     responses:
+       200:
+         body:
+           application/json:
+             examples:
+               {
+                 "massage":"successfuly deleted"
+               }
+       404:
+         body:
+           application/json:
+             examples:
+               {"massage":"resource not found"}
+ 
+  post:
+    description: Creates anew product based on requestJSON
+    responses:
+      201:
+        body:
+          application/json:
+            examples:
+              {"massage":"created"}
+      400:
+        body:
+          application/json:
+            examples:
+              {"massage":"bad request"}
+  
+  
+/Bills:
+  description: Bills information
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            examples:
+              {
+                "massage":"succesful"
+                
+              }
+      400:
+        body:
+          application/json:
+            examples:
+              {
+                "massage":"not found"
+              }
+
+    description: fetches all bills' data
+  /{ID}:
+    get:
+      description: fetches bill of a particular id
+      responses:
+       200:
+        body:
+          application/json:
+            examples:
+              {
+                "massage":"succesful"
+                
+              }
+       400:
+        body:
+          application/json:
+            examples:
+              {
+                "massage":"not found"
+              }
+
+    put:
+      description: Updatesbill data.Client can add or remove products to bill 
+      responses:
+       200:
+         body:
+           application/json:
+             examples:
+               {
+                 "massage":"succesfully updated"
+               }
+       304:
+         body:
+           application/json:
+             examples:
+               {"massage":"not modified"}
+    delete: 
+     description: Delete bill from the syste
+     responses:
+      200:
+         body:
+           application/json:
+             examples:
+               {
+                 "massage":"successfuly deleted"
+               }
+      404:
+         body:
+           application/json:
+             examples:
+               {"massage":"resource not found"}
+  post:
+    description: creates a bill Id.Client has to use this bill Id while adding and removing products
+    responses:
+      201:
+        body:
+          application/json:
+            examples:
+              {"massage":"created"}
+      400:
+        body:
+          application/json:
+            examples:
+              {"massage":"bad request"}
+    
+/ProductCatagory:
+  description: product catagory resource
+  get:
+    description: fetches list of all product catagory data
+    responses:
+        200:
+          body:
+            application/json:
+              examples:
+                {"massage":"successful"}
+        400:
+          body:
+            application/json:
+              examples:
+                {"massage":"not found"}
+  /{ID}:
+    get:
+      description: fetch a specific product catagory
+      responses:
+        200:
+          body:
+            application/json:
+              examples:
+                {"massage":"successful"}
+        400:
+          body:
+            application/json:
+              examples:
+                {"massage":"not found"}
+               
+                 
+    put:           
+     description: Updates product catagory data based on request JSON.
+     responses:
+       200:
+         body:
+           application/json:
+             examples:
+               {"massage":"successfuly updated"}
+       304:
+         body:
+           application/json:
+             examples:
+               {"massage":"not updated"}
+    
+    delete:
+     description: Delete anexisting product catagory
+     responses:
+       200:
+         body:
+           application/json:
+             examples:
+               {"massage":"succesfully deleted"}
+       404:
+         body:
+           application/json:
+             examples:
+               {"massage":"resource not found"}
+    
+  post:
+    description: Creates a new product catagory based on request JSON
+    responses:
+      201:
+        body:
+          application/json:
+            examples:
+              {"massage":"created"}
+      400:
+        body:
+          application/json:
+            examples:
+              {"massage":"bad request"}
+  
+
+
+
+    
+
